@@ -1,9 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby + Node.js API`,
-      siteUrl: `https://gatsby-template.vercel.app`,
+    siteUrl: `https://get-rank-mmr.vercel.app`,
   },
-  plugins: [
-
-  ]
-}
+  plugins: [],
+};
