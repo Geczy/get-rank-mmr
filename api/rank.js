@@ -1,49 +1,42 @@
-const ranks = [
-  { range: [0, 153], title: "Herald☆1" },
-  { range: [154, 307], title: "Herald☆2" },
-  { range: [308, 461], title: "Herald☆3" },
-  { range: [462, 615], title: "Herald☆4" },
-  { range: [616, 769], title: "Herald☆5" },
-  { range: [770, 923], title: "Guardian☆1" },
-  { range: [924, 1077], title: "Guardian☆2" },
-  { range: [1078, 1231], title: "Guardian☆3" },
-  { range: [1232, 1385], title: "Guardian☆4" },
-  { range: [1386, 1539], title: "Guardian☆5" },
-  { range: [1540, 1693], title: "Crusader☆1" },
-  { range: [1694, 1847], title: "Crusader☆2" },
-  { range: [1848, 2001], title: "Crusader☆3" },
-  { range: [2002, 2155], title: "Crusader☆4" },
-  { range: [2156, 2309], title: "Crusader☆5" },
-  { range: [2310, 2463], title: "Archon☆1" },
-  { range: [2464, 2617], title: "Archon☆2" },
-  { range: [2618, 2771], title: "Archon☆3" },
-  { range: [2772, 2925], title: "Archon☆4" },
-  { range: [2926, 3079], title: "Archon☆5" },
-  { range: [3080, 3233], title: "Legend☆1" },
-  { range: [3234, 3387], title: "Legend☆2" },
-  { range: [3388, 3541], title: "Legend☆3" },
-  { range: [3542, 3695], title: "Legend☆4" },
-  { range: [3696, 3849], title: "Legend☆5" },
-  { range: [3850, 4003], title: "Ancient☆1" },
-  { range: [4004, 4157], title: "Ancient☆2" },
-  { range: [4158, 4311], title: "Ancient☆3" },
-  { range: [4312, 4465], title: "Ancient☆4" },
-  { range: [4466, 4619], title: "Ancient☆5" },
-  { range: [4620, 4819], title: "Divine☆1" },
-  { range: [4820, 5019], title: "Divine☆2" },
-  { range: [5020, 5219], title: "Divine☆3" },
-  { range: [5220, 5419], title: "Divine☆4" },
-  { range: [5420, 7000], title: "Divine☆5" },
-];
+export function getRankTitle(param) {
+  const mmr = Number(param);
 
-export function getRankTitle(mmr) {
-  const sanitizedmmr = Number(mmr);
-
-  const rank = ranks.find(
-    (rank) => sanitizedmmr >= rank.range[0] && sanitizedmmr <= rank.range[1]
-  );
-
-  return rank?.title || "Unknown";
+  if (mmr <= 153) return "Herald☆1";
+  if (mmr <= 307) return "Herald☆2";
+  if (mmr <= 461) return "Herald☆3";
+  if (mmr <= 615) return "Herald☆4";
+  if (mmr <= 769) return "Herald☆5";
+  if (mmr <= 923) return "Guardian☆1";
+  if (mmr <= 1077) return "Guardian☆2";
+  if (mmr <= 1231) return "Guardian☆3";
+  if (mmr <= 1385) return "Guardian☆4";
+  if (mmr <= 1539) return "Guardian☆5";
+  if (mmr <= 1693) return "Crusader☆1";
+  if (mmr <= 1847) return "Crusader☆2";
+  if (mmr <= 2001) return "Crusader☆3";
+  if (mmr <= 2155) return "Crusader☆4";
+  if (mmr <= 2309) return "Crusader☆5";
+  if (mmr <= 2463) return "Archon☆1";
+  if (mmr <= 2617) return "Archon☆2";
+  if (mmr <= 2771) return "Archon☆3";
+  if (mmr <= 2925) return "Archon☆4";
+  if (mmr <= 3079) return "Archon☆5";
+  if (mmr <= 3233) return "Legend☆1";
+  if (mmr <= 3387) return "Legend☆2";
+  if (mmr <= 3541) return "Legend☆3";
+  if (mmr <= 3695) return "Legend☆4";
+  if (mmr <= 3849) return "Legend☆5";
+  if (mmr <= 4003) return "Ancient☆1";
+  if (mmr <= 4157) return "Ancient☆2";
+  if (mmr <= 4311) return "Ancient☆3";
+  if (mmr <= 4465) return "Ancient☆4";
+  if (mmr <= 4619) return "Ancient☆5";
+  if (mmr <= 4819) return "Divine☆1";
+  if (mmr <= 5019) return "Divine☆2";
+  if (mmr <= 5219) return "Divine☆3";
+  if (mmr <= 5419) return "Divine☆4";
+  if (mmr <= 7000) return "Divine☆5";
+  return "Unknown";
 }
 
 export default function handler(req, res) {
