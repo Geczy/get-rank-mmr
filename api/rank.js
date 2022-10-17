@@ -36,15 +36,16 @@ const ranks = [
   { range: [5420, 7000], title: "Divine☆5" },
 ];
 
-function getRankTitle(mmr) {
+export function getRankTitle(mmr) {
+  const sanitizedmmr = Number(mmr);
+
   const rank = ranks.find(
-    (rank) => mmr >= rank.range[0] && mmr <= rank.range[1]
+    (rank) => sanitizedmmr >= rank.range[0] && sanitizedmmr <= rank.range[1]
   );
 
   return rank?.title || "Unknown";
 }
 
 export default function handler(req, res) {
-  const mmr = Number(req.query.mmr);
-  res.status(200).send(getRankTitle(mmr));
+  res.status(200).send(getRankTitle(req.query.mmr));
 }
