@@ -50,7 +50,7 @@ export function getRankTitle(param) {
 
   const nextMMR = nextRank?.range[0] || rank?.range[1];
   const nextAt = ` | Next rank at ${nextMMR} MMR`;
-  const oneMore = nextMMR - mmr < 30 ? " | One more win peepoClap" : "";
+  const oneMore = nextMMR - mmr <= 30 ? " | One more win peepoClap" : "";
 
   return `${rank.title}${nextAt}${oneMore}`;
 }
