@@ -49,10 +49,14 @@ export function getRankTitle(param) {
   if (!rank) return "???";
 
   const nextMMR = nextRank?.range[0] || rank?.range[1];
-  const nextAt = ` | Next rank at ${nextMMR} MMR`;
-  const oneMore = nextMMR - mmr <= 30 ? " | One more win peepoClap" : "";
+  const mmrToNextRank = nextMMR - mmr;
+  const winsToNextRank = Math.round(mmrToNextRank / 30);
 
-  return `${rank.title}${nextAt}${oneMore}`;
+  const nextAt = ` | Next rank at ${nextMMR}`;
+  const nextIn = ` in ${winsToNextRank} wins`;
+  const oneMore = mmrToNextRank <= 30 ? " | One more win peepoClap" : "";
+
+  return `${rank.title}${nextAt}${oneMore || nextIn}`;
 }
 
 export default function handler(req, res) {
