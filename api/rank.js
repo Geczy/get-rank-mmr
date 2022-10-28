@@ -50,7 +50,7 @@ export function getRankTitle(param) {
 
   const nextMMR = nextRank?.range[0] || rank?.range[1];
   const mmrToNextRank = nextMMR - mmr;
-  const winsToNextRank = Math.round(mmrToNextRank / 30);
+  const winsToNextRank = Math.ceil(mmrToNextRank / 30);
 
   const nextAt = ` | Next rank at ${nextMMR}`;
   const nextIn = ` in ${winsToNextRank} wins`;
